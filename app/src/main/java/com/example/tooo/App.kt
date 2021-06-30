@@ -3,7 +3,7 @@ package com.example.tooo
 import android.app.Application
 import android.util.Log
 import com.example.tooo.utils.Constants.TAG
-import com.example.tooo.utils.KAKAO_API
+import com.example.tooo.utils.API
 import com.kakao.sdk.common.KakaoSdk
 
 class App: Application() {
@@ -16,7 +16,7 @@ class App: Application() {
         super.onCreate()
         instance = this
 
-        KakaoSdk.init(this, KAKAO_API.NATIVE_APP_KEY)
+        KakaoSdk.init(this, API.KAKAO_NATIVE_APP_KEY)
 
         Log.d(TAG, "App - onCreate() called")
     }
