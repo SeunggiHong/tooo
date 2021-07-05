@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="15dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?attr/selectableItemBackground"
+        >
+        <ImageView
+            android:id="@+id/iv_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_baseline_image_24"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="seunggiHong"
+                android:textSize="25sp"
+                />
+            <TextView
+                android:id="@+id/tv_usermail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tmdrl1026@naver.com"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:textSize="13sp"
+                />
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="82-10-4482-6574"
+                android:drawableStart="@drawable/ic_baseline_phone_iphone_24"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
