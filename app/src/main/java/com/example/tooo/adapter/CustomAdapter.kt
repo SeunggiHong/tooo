@@ -9,9 +9,10 @@ import com.example.tooo.data.User
 import com.example.tooo.viewholder.CustomViewHolder
 import com.example.tooo.interfaces.ClickInterface
 
-class CustomAdapter(private val dataSet: ArrayList<User>, mClickInterface : ClickInterface) : RecyclerView.Adapter<CustomViewHolder>() {
+class CustomAdapter(mClickInterface : ClickInterface) : RecyclerView.Adapter<CustomViewHolder>() {
 
     private var mClickInterface: ClickInterface? = null
+    private var users: List<User> = listOf()
 
     init {
         this.mClickInterface = mClickInterface
@@ -25,15 +26,15 @@ class CustomAdapter(private val dataSet: ArrayList<User>, mClickInterface : Clic
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.bindViewHolder(dataSet[position])
+        holder.bindViewHolder(users[position])
     }
 
     override fun getItemCount(): Int {
-        return dataSet.size
+        return users.size
     }
 
-//    fun setContacts(user: ArrayList<User>) {
-//        this.dataSet = user
-//        notifyDataSetChanged()
-//    }
+    fun setDatas(datas: List<User>) {
+        this.users = datas
+        notifyDataSetChanged()
+    }
 }

@@ -13,30 +13,29 @@ import com.example.tooo.utils.API.NAVER_CLIENT_ID
 import com.example.tooo.utils.API.NAVER_CLIENT_SECRET
 import com.example.tooo.utils.Constants.APP_NAME
 import com.example.tooo.utils.Constants.TAG
-import com.google.android.material.button.MaterialButton
 import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.user.Constants
 import com.kakao.sdk.user.UserApiClient
 import com.nhn.android.naverlogin.OAuthLogin
 import com.nhn.android.naverlogin.OAuthLoginHandler
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var btnLogin: Button
-    lateinit var btnKakao: ImageButton
-    lateinit var btnNaver: OAuthLoginButton
+    lateinit var mBtnLogin: Button
+    lateinit var mBtnKakao: ImageButton
+    lateinit var mBtnNaver: OAuthLoginButton
     lateinit var mOAuthLoginModule: OAuthLogin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        btnLogin = findViewById(R.id.btn_login)
-        btnKakao = findViewById(R.id.btn_kakao)
-        btnNaver = findViewById(R.id.btn_naver)
+        Log.d(TAG, "LoginActivity - onCreate() called")
+
+        mBtnLogin = findViewById(R.id.btn_login)
+        mBtnKakao = findViewById(R.id.btn_kakao)
+        mBtnNaver = findViewById(R.id.btn_naver)
 
         //기본 로그인
-        btnLogin.setOnClickListener {
+        mBtnLogin.setOnClickListener {
             val intent = Intent(App.instance, MainActivity::class.java)
             startActivity(intent)
         }
@@ -53,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        btnKakao.setOnClickListener {
+        mBtnKakao.setOnClickListener {
             // 카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
                 UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
@@ -69,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
             NAVER_CLIENT_SECRET,
             APP_NAME
         )
-        btnNaver.setOAuthLoginHandler(mOAuthLoginHandler)
+        mBtnNaver.setOAuthLoginHandler(mOAuthLoginHandler)
     }
 
     val mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {

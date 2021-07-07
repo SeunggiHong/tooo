@@ -13,3 +13,11 @@ object API {
     const val NAVER_CLIENT_SECRET: String = "7YO7tW0mnI"
 
 }
+
+object EXTRAS {
+    const val EXTRA_USER_ID    = "EXTRA_USER_ID"
+    const val EXTRA_USER_NAME  = "EXTRA_USER_NAME"
+    const val EXTRA_USER_PHOTO = "EXTRA_USER_PHOTO"
+    const val EXTRA_USER_EMAIL = "EXTRA_USER_EMAIL"
+    const val EXTRA_USER_PHONE = "EXTRA_USER_PHONE"
+}
