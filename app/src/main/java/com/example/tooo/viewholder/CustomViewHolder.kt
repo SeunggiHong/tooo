@@ -5,10 +5,14 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.tooo.App
 import com.example.tooo.R
 import com.example.tooo.data.User
-import com.example.tooo.interfaces.ClickInterface
+
 import com.example.tooo.utils.Constants.TAG
+import com.example.tooo.interfaces.ClickInterface
+
 
 class CustomViewHolder(view: View, mClickInterface: ClickInterface) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
@@ -35,17 +39,15 @@ class CustomViewHolder(view: View, mClickInterface: ClickInterface) : RecyclerVi
         this.userEmail.text = user.userEmail
         this.userPhone.text = user.userPhone
 
-//        Glide.with(App.instance)
-//            .load(userModel.userPhoto)
-//            .placeholder(R.drawable.ic_baseline_image_24)
-//            .into(this.userPhoto)
+        Glide.with(App.instance)
+            .load(user.userPhoto)
+            .placeholder(R.drawable.ic_baseline_image_24)
+            .into(this.userPhoto)
 
     }
 
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
-//        val pos: Int = bindingAdapterPosition
-//        this.mClickInterface?.onItemClicked(pos)
+        this.mClickInterface?.onItemClicked(adapterPosition)
     }
 
 

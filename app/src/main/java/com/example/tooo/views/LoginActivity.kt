@@ -20,8 +20,10 @@ import com.kakao.sdk.user.UserApiClient
 import com.nhn.android.naverlogin.OAuthLogin
 import com.nhn.android.naverlogin.OAuthLoginHandler
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+    lateinit var btnLogin: Button
     lateinit var btnKakao: ImageButton
     lateinit var btnNaver: OAuthLoginButton
     lateinit var mOAuthLoginModule: OAuthLogin
@@ -29,8 +31,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        btnLogin = findViewById(R.id.btn_login)
         btnKakao = findViewById(R.id.btn_kakao)
         btnNaver = findViewById(R.id.btn_naver)
+
+        //기본 로그인
+        btnLogin.setOnClickListener {
+            val intent = Intent(App.instance, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         // 로그인 공통 callback 구성
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
