@@ -11,28 +11,29 @@ import com.example.tooo.viewholder.CustomViewHolder
 import com.example.tooo.interfaces.ClickInterface
 import com.example.tooo.viewholder.PictureViewHolder
 
-class PictureAdapter(mClickInterface : ClickInterface) : RecyclerView.Adapter<PictureViewHolder>() {
+class PictureAdapter(pics: ArrayList<Picture>, mClickInterface : ClickInterface) : RecyclerView.Adapter<PictureViewHolder>() {
 
     private var mClickInterface: ClickInterface? = null
     private var pics: ArrayList<Picture> = ArrayList()
 
     init {
         this.mClickInterface = mClickInterface
+        this.pics = pics
 
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874861.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874766.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
-        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874861.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874766.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874907.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
+//        pics.add(Picture("https://image.flaticon.com/icons/png/512/4874/4874804.png"))
 
 
     }

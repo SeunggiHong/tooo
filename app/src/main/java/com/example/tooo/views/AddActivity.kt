@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.tooo.App
 import com.example.tooo.R
 import com.example.tooo.data.User
@@ -23,7 +25,7 @@ class AddActivity : AppCompatActivity() {
 
     private lateinit var userViewmodel: UserViewModel
     private var mId: Long? = null
-
+    lateinit var mIvPic: ImageView
     lateinit var mEtName: EditText
     lateinit var mEtPhoto: EditText
     lateinit var mEtMail: EditText
@@ -36,6 +38,7 @@ class AddActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add)
         Log.d(TAG, "AddActivity - onCreate() called")
 
+        mIvPic = findViewById(R.id.iv_face)
         mEtName = findViewById(R.id.et_add_name)
         mEtPhone = findViewById(R.id.et_add_phone)
         mBtnAdd = findViewById(R.id.btn_add)
@@ -83,6 +86,17 @@ class AddActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "AddActivity - onResume() called")
+
+        if (intent.hasExtra("url"))
+        {
+            val mUrl = intent.getStringExtra("url")
+            Log.d(TAG, "url : $mUrl")
+
+            Glide.with(App.instance)
+                .load(mUrl)
+                .placeholder(R.drawable.ic_baseline_image_24)
+                .into(this.mIvPic)
+        }
     }
 
     override fun onPause() {
