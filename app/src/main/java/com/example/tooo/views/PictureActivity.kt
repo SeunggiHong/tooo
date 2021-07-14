@@ -74,14 +74,9 @@ class PictureActivity : AppCompatActivity(), ClickInterface {
         Toast.makeText(this, "pos? : $pos", Toast.LENGTH_SHORT).show()
 
         finish()
-        var intent = Intent(this, AddActivity::class.java)
+
+        val intent = Intent(this, AddActivity::class.java)
         intent.putExtra("url", pics[pos].url)
         startActivity(intent)
-
-
     }
-
-
-
-
 }

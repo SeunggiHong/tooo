@@ -25,9 +25,9 @@ class AddActivity : AppCompatActivity() {
 
     private lateinit var userViewmodel: UserViewModel
     private var mId: Long? = null
+    private var mStrUrl: String = ""
     lateinit var mIvPic: ImageView
     lateinit var mEtName: EditText
-    lateinit var mEtPhoto: EditText
     lateinit var mEtMail: EditText
     lateinit var mEtPhone: EditText
     lateinit var mBtnAdd: MaterialButton
@@ -40,6 +40,7 @@ class AddActivity : AppCompatActivity() {
 
         mIvPic = findViewById(R.id.iv_face)
         mEtName = findViewById(R.id.et_add_name)
+        mEtMail = findViewById(R.id.et_add_email)
         mEtPhone = findViewById(R.id.et_add_phone)
         mBtnAdd = findViewById(R.id.btn_add)
         mBtnPic = findViewById(R.id.btn_picsel)
@@ -55,10 +56,10 @@ class AddActivity : AppCompatActivity() {
 
         mBtnAdd.setOnClickListener {
             Log.d(TAG, "mBtnAdd tabbed!!")
-            val mName = mEtName.text.toString().trim()
+            val mName  = mEtName.text.toString().trim()
             val mPhone = mEtPhone.text.toString()
-            val mPhoto = "https://image.flaticon.com/icons/png/512/4874/4874804.png"
-            val mEmail = "test@hanmail.com"
+            val mPhoto = mStrUrl
+            val mEmail = mEtMail.text.toString().trim()
             Log.d(TAG, "Name: $mName \n")
 
             if(mName.isEmpty() || mPhone.isEmpty()) {
@@ -74,6 +75,8 @@ class AddActivity : AppCompatActivity() {
         mBtnPic.setOnClickListener {
             val intent = Intent(App.instance, PictureActivity::class.java)
             startActivity(intent)
+
+            finish()
         }
 
     }
@@ -96,6 +99,8 @@ class AddActivity : AppCompatActivity() {
                 .load(mUrl)
                 .placeholder(R.drawable.ic_baseline_image_24)
                 .into(this.mIvPic)
+
+            mStrUrl = mUrl!!
         }
     }
 
@@ -108,6 +113,5 @@ class AddActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "AddActivity - onDestroy() called")
     }
-
 
 }

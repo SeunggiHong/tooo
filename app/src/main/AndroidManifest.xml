@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tooo">
-        <activity android:name=".views.PictureActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".views.DeleteActivity"></activity>
+        <activity
+            android:name=".views.PictureActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".views.AddActivity" />
         <activity android:name=".views.SplashActivity">
             <intent-filter>

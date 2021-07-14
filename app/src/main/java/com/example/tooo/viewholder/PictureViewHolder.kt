@@ -19,7 +19,6 @@ class PictureViewHolder(view: View, mClickInterface: ClickInterface) : RecyclerV
     private var mClickInterface: ClickInterface? = null
 
     init {
-//        Log.d(Constants.TAG, "PictureViewHolder init")
         userPhoto = view.findViewById(R.id.iv_user)
 
         itemView.setOnClickListener(this)
@@ -27,7 +26,6 @@ class PictureViewHolder(view: View, mClickInterface: ClickInterface) : RecyclerV
     }
 
     fun bindViewHolder(pic: Picture) {
-//        Log.d(Constants.TAG, "bindViewHolder: bind")
 
         Glide.with(App.instance)
             .load(pic.url)

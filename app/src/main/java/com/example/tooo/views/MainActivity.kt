@@ -89,6 +89,11 @@ class MainActivity : AppCompatActivity(), ClickInterface {
             startActivity(intent)
         }
 
+        mFabDel.setOnClickListener {
+            val intent = Intent(App.instance, DeleteActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onStart() {
